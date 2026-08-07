@@ -5,19 +5,20 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-    const { action, text } = req.body;
+    const { action, text, model } = req.body;
 
     // Basic validation
-    if (!action || !text) {
+    if (!action || !text || !model) {
       return res.status(400).json({
         success: false,
-        message: "Action and text are required.",
+        message: "Action, model and text are required.",
       });
     }
 
     const result = await processAIRequest({
       action,
       text,
+      model,
     });
 
     res.status(200).json({
@@ -29,7 +30,7 @@ router.post("/", async (req, res) => {
 
     res.status(500).json({
       success: false,
-      message: "Something went wrong while processing your request.",
+      message: "Unable to generate a response. Please try again or choose a different AI model.",
     });
   }
 });
