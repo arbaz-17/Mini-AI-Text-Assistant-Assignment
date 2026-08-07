@@ -14,7 +14,7 @@ export const AIAction = Object.freeze({
 export const appState = {
   requestState: RequestState.IDLE,
   currentAction: null,
-  selectedModel: "google/gemma-4-31b-it:free",
+  selectedModel: "nvidia/nemotron-3-ultra-550b-a55b:free",
   response: "",
   error: "",
   abortController: null,

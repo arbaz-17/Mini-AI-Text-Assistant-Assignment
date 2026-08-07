@@ -5,8 +5,12 @@ import {
   rewriteButton,
   textInput,
   modelSelect,
+  loadSampleButton
 } from "./ui/dom.js";
 import { render } from "./ui/renderer.js";
+import { SAMPLE_TEXT } from "./utils/sampleText.js";
+
+loadSampleButton.addEventListener("click", loadSampleText);
 
 summarizeButton.addEventListener("click", () => {
   handleAIRequest(AIAction.SUMMARIZE);
@@ -19,6 +23,12 @@ rewriteButton.addEventListener("click", () => {
 modelSelect.addEventListener("change", (event) => {
   appState.selectedModel = event.target.value;
 });
+
+function loadSampleText() {
+  textInput.value = SAMPLE_TEXT;
+
+  textInput.focus();
+}
 
 async function handleAIRequest(action) {
   const text = textInput.value.trim();

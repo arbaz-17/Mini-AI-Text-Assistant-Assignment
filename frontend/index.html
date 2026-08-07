@@ -19,17 +19,19 @@
         <!-- New Dropdown Added Here -->
         <div class="model-selector">
           <label for="ai-model">Model:</label>
-<select id="ai-model" name="ai-model" selected>
-  <option value="google/gemma-4-31b-it:free">
-    Google Gemma 4 31B
+<select id="ai-model" name="ai-model" >
+
+  <option value="nvidia/nemotron-3-ultra-550b-a55b:free" selected>
+    NVIDIA Nemotron 3 Ultra
   </option>
+  
 
   <option value="openai/gpt-oss-20b:free">
     OpenAI GPT OSS 20B
   </option>
 
-  <option value="nvidia/nemotron-3-ultra-550b-a55b:free">
-    NVIDIA Nemotron 3 Ultra
+  <option value="google/gemma-4-31b-it:free">
+    Google Gemma 4 31B
   </option>
 
   <option value="qwen/qwen3-30b-a3b:free">
@@ -40,8 +42,19 @@
       </header>
 
       <section class="input-section">
-        <label for="text-input"> Enter your text </label>
+        <div class="input-header">
+  <label for="text-input">
+    Enter your text
+  </label>
 
+  <button
+    id="load-sample-btn"
+    type="button"
+    class="secondary-btn"
+  >
+    Load Sample
+  </button>
+</div>
         <textarea
           id="text-input"
           rows="10"
@@ -60,7 +73,7 @@
       <section id="output-section" hidden>
         <h2>AI Response</h2>
 
-        <textarea id="output-text" rows="10" readonly></textarea>
+        <textarea class="output-textarea" id="output-text" rows="10" readonly></textarea>
       </section>
     </main>
 

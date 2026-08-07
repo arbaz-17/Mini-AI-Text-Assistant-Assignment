@@ -16,17 +16,16 @@ ${text}
 };
 
 const SUPPORTED_MODELS = [
-  "google/gemma-4-31b-it:free",
-  "openai/gpt-oss-20b:free",
   "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "openai/gpt-oss-20b:free",
+  "google/gemma-4-31b-it:free",
   "qwen/qwen3-30b-a3b:free",
 ];
 
 export async function processAIRequest({ action, text, model }) {
   const promptBuilder = PROMPTS[action];
 
-  const selectedModel =
-  SUPPORTED_MODELS.includes(model)
+  const selectedModel = SUPPORTED_MODELS.includes(model)
     ? model
     : process.env.AI_MODEL;
 
