@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>AI Text Assistant</title>
+
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="app-header">
+        <h1>AI Text Assistant</h1>
+        <p>Summarize or rewrite text using AI.</p>
+      </header>
+
+      <section class="input-section">
+        <label for="text-input"> Enter your text </label>
+
+        <textarea
+          id="text-input"
+          rows="10"
+          placeholder="Paste your text here..."
+        ></textarea>
+      </section>
+
+      <section class="action-section">
+        <button id="summarize-btn" type="button">Summarize</button>
+
+        <button id="rewrite-btn" type="button">Rewrite</button>
+      </section>
+
+      <section id="status-section" aria-live="polite"></section>
+
+      <section id="output-section" hidden>
+        <h2>AI Response</h2>
+
+        <textarea id="output-text" rows="10" readonly></textarea>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
