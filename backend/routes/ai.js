@@ -5,20 +5,21 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-    const { action, text } = req.body;
+    const { action, text, model } = req.body;
 
     // Basic validation
-    if (!action || !text) {
+    if (!action || !text || !model) {
       return res.status(400).json({
         success: false,
-        message: "Action and text are required.",
+        message: "Action, model and text are required.",
       });
     }
 
     const result = await processAIRequest({
-      action,
-      text,
-    });
+  action,
+  text,
+  model,
+});
 
     res.status(200).json({
       success: true,

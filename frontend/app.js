@@ -1,9 +1,11 @@
 import { AIAction, appState, RequestState } from "./state/appState.js";
-
 import { generateAIResponse } from "./services/aiService.js";
-
-import { summarizeButton, rewriteButton, textInput } from "./ui/dom.js";
-
+import {
+  summarizeButton,
+  rewriteButton,
+  textInput,
+  modelSelect,
+} from "./ui/dom.js";
 import { render } from "./ui/renderer.js";
 
 summarizeButton.addEventListener("click", () => {
@@ -12,6 +14,10 @@ summarizeButton.addEventListener("click", () => {
 
 rewriteButton.addEventListener("click", () => {
   handleAIRequest(AIAction.REWRITE);
+});
+
+modelSelect.addEventListener("change", (event) => {
+  appState.selectedModel = event.target.value;
 });
 
 async function handleAIRequest(action) {
@@ -27,10 +33,11 @@ async function handleAIRequest(action) {
 
   try {
     const response = await generateAIResponse(
-      action,
-      text,
-      appState.abortController.signal,
-    );
+  action,
+  text,
+  appState.selectedModel,
+  appState.abortController.signal
+);
 
     handleSuccess(response);
   } catch (error) {

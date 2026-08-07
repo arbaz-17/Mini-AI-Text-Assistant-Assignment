@@ -1,6 +1,6 @@
 const BASE_URL = "http://localhost:3000/api/ai";
 
-export async function generateAIResponse(action, text, signal) {
+export async function generateAIResponse(action, text, model, signal) {
   const response = await fetch(BASE_URL, {
     method: "POST",
 
@@ -10,10 +10,11 @@ export async function generateAIResponse(action, text, signal) {
 
     signal,
 
-    body: JSON.stringify({
-      action,
-      text,
-    }),
+body: JSON.stringify({
+  action,
+  text,
+  model,
+}),
   });
 
   const data = await response.json();
