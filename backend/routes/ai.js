@@ -6,8 +6,6 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   try {
     const { action, text, model } = req.body;
-
-    // Basic validation
     if (!action || !text || !model) {
       return res.status(400).json({
         success: false,

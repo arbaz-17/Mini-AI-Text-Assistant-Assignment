@@ -1,14 +1,17 @@
 const PROMPTS = {
   summarize: (text) => `
-Summarize the following text clearly and concisely.
+You are an expert editor.
+Summarize the following text into a clear, concise, and well-structured summary. Preserve all key facts, names, dates, numbers, and conclusions. Remove only repetition and unnecessary details. Do not add, assume, or infer any information.
+Return only the final summary as plain text. Do not include titles, introductions, explanations, markdown, or code fences.
 
 Text:
 ${text}
 `,
 
   rewrite: (text) => `
-Rewrite the following text while preserving its meaning.
-Make it professional and easy to read.
+You are an expert editor.
+Rewrite the following text to improve clarity, grammar, readability, and flow while preserving the original meaning, tone, and level of detail. Do not add, remove, or alter any factual information.
+Return only the rewritten text as plain text. Do not include introductions, explanations, markdown, or code fences.
 
 Text:
 ${text}
@@ -55,9 +58,7 @@ export async function processAIRequest({ action, text, model }) {
 
   if (!response.ok) {
     const errorData = await response.json();
-
     console.error("OpenRouter Error:", errorData);
-
     throw new Error(errorData.error?.message || "Failed to fetch AI response.");
   }
 
