@@ -10,7 +10,7 @@
   --bg-input: #000000;      
   
   --text-main: #ffffff;     /* Pure black */
-  --text-muted: #e0dfdf;    /* Dark grey for secondary text */
+  --text-muted: #bebebe;    /* Dark grey for secondary text */
   
   /* Accents */
   --brand-orange: #ff5e00;  /* Vibrant, energetic orange */
@@ -195,12 +195,15 @@ textarea:focus {
 textarea[readonly] {
   background-color: #fafafa;
   border-color: var(--border-color);
-  color: var(--text-muted);
 }
 
 textarea[readonly]:focus {
   border-color: var(--brand-orange);
   box-shadow: none;
+}
+
+.output-textarea{
+  color: #000000;
 }
 
 /* =========================
@@ -352,4 +355,27 @@ button:disabled {
     padding: 1rem;
     text-align: center;
   }
+}
+
+.input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}.secondary-btn {
+  flex: none;
+
+  padding: 0.45rem 1rem;
+
+  font-size: 0.85rem;
+
+  background: transparent;
+
+  color: var(--brand-orange);
+
+  border: 2px solid var(--brand-orange);
+}
+
+.secondary-btn:hover {
+  background: var(--brand-orange);
+  color: white;
 }

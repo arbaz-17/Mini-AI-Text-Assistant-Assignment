@@ -16,10 +16,10 @@ router.post("/", async (req, res) => {
     }
 
     const result = await processAIRequest({
-  action,
-  text,
-  model,
-});
+      action,
+      text,
+      model,
+    });
 
     res.status(200).json({
       success: true,
@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
 
     res.status(500).json({
       success: false,
-      message: "Something went wrong while processing your request.",
+      message: "Unable to generate a response. Please try again or choose a different AI model.",
     });
   }
 });
