@@ -5,23 +5,23 @@
 
 :root {
   /* Colors */
-  --bg-page: #ff5e00;      
-  --bg-container: #000000;  
+  --bg-page: #ff5e00;       /* Light grey background to make the white card pop */
+  --bg-container: #000000;  /* Pure white */
   --bg-input: #000000;      
   
-  --text-main: #ffffff;     
-  --text-muted: #bebebe;    
+  --text-main: #ffffff;     /* Pure black */
+  --text-muted: #bebebe;    /* Dark grey for secondary text */
   
   /* Accents */
-  --brand-orange: #ff5e00;  
+  --brand-orange: #ff5e00;  /* Vibrant, energetic orange */
   --brand-orange-hover: #e65500;
   --brand-orange-light: rgba(255, 94, 0, 0.08);
   
   --black-accent: #111111;
   --error-red: #dc2626;
   --cancel-gray: #6b7280;
-  --border-color: #e4e4e7;  
-  --border-dark: #ffffff;   
+  --border-color: #e4e4e7;  /* Soft grey for default borders */
+  --border-dark: #000000;   /* Black for active/focus borders */
 }
 
 /* =========================
@@ -31,11 +31,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-/* FIX 1: Ensure hidden elements actually stay hidden */
-[hidden] {
-  display: none !important;
 }
 
 body {
@@ -60,9 +55,11 @@ body {
   padding: 2.5rem;
   border-radius: 16px;
   
+  /* Sharp, modern box shadow */
   border: 1px solid var(--border-color);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
+  /* Mobile default is a single column */
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -72,14 +69,16 @@ body {
    Header
 ========================= */
 .app-header {
+  grid-area: header;
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 1rem;
   margin-bottom: 0;
   
+  /* Flexbox to align title and dropdown side-by-side */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap; /* Allows stacking on small screens */
   gap: 1rem;
 }
 
@@ -104,14 +103,11 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  width: 100%; /* Allows it to flow naturally on mobile */
-  max-width: 100%;
 }
 
 .model-selector label {
   font-size: 0.85rem;
   color: var(--text-muted);
-  white-space: nowrap;
 }
 
 select {
@@ -123,23 +119,16 @@ select {
   
   border: 2px solid var(--border-color);
   border-radius: 6px;
-  padding: 0.4rem 2rem 0.4rem 0.75rem;
+  padding: 0.4rem 2rem 0.4rem 0.75rem; /* Extra right padding for the arrow */
   
   cursor: pointer;
   outline: none;
   transition: all 0.2s ease;
-  appearance: auto; 
-  
-  /* FIX 2: Prevent long select names from breaking mobile width */
-  max-width: 100%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  flex: 1;
+  appearance: auto; /* Uses default system arrow */
 }
 
 select:focus {
-  border-color: var(--brand-orange);
+  border-color: var(--border-dark);
   box-shadow: 3px 3px 0px var(--brand-orange-light);
 }
 
@@ -171,39 +160,13 @@ label, h2 {
   color: var(--text-main);
 }
 
-/* FIX 3: Allow input header to wrap gracefully if button is pushed */
-.input-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.secondary-btn {
-  flex: none;
-  padding: 0.45rem 1rem;
-  font-size: 0.85rem;
-  background: transparent;
-  color: var(--brand-orange);
-  border: 2px solid var(--brand-orange);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.secondary-btn:hover {
-  background: var(--brand-orange);
-  color: white;
-}
-
 /* =========================
    Textareas
 ========================= */
 textarea {
   width: 100%;
   flex: 1; 
-  min-height: 200px;
+  min-height: 250px;
   resize: vertical;
   padding: 1.25rem;
   
@@ -222,20 +185,25 @@ textarea::placeholder {
   color: #adadad;
 }
 
+/* High contrast focus ring */
 textarea:focus {
   border-color: var(--border-dark);
   box-shadow: 4px 4px 0px var(--brand-orange-light);
 }
 
+/* Read-only styling */
 textarea[readonly] {
   background-color: #fafafa;
   border-color: var(--border-color);
-  color: #000000;
 }
 
 textarea[readonly]:focus {
   border-color: var(--brand-orange);
   box-shadow: none;
+}
+
+.output-textarea{
+  color: #000000;
 }
 
 /* =========================
@@ -252,16 +220,18 @@ button {
   font-size: 1rem;
   font-weight: 600;
   
+  /* Black buttons for primary actions */
   background-color: var(--black-accent);
   color: #ffffff;
   
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--black-accent);
   border-radius: 8px;
   cursor: pointer;
   
   transition: all 0.2s ease;
 }
 
+/* Orange hover effect */
 button:hover:not(:disabled) {
   background-color: var(--brand-orange);
   border-color: var(--brand-orange);
@@ -274,9 +244,9 @@ button:active:not(:disabled) {
 }
 
 button:disabled {
-  background-color: #333333;
-  border-color: #444444;
-  color: #888888;
+  background-color: #f4f4f5;
+  border-color: #e4e4e7;
+  color: #a1a1aa;
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
@@ -297,6 +267,7 @@ button:disabled {
 #cancel-btn:hover {
   background-color: var(--cancel-gray);
   color: #ffffff;
+  box-shadow: none;
 }
 
 #retry-btn {
@@ -306,6 +277,7 @@ button:disabled {
 #retry-btn:hover {
   background-color: var(--error-red);
   color: #ffffff;
+  box-shadow: none;
 }
 
 /* =========================
@@ -333,10 +305,18 @@ button:disabled {
   gap: 0.75rem;
 }
 
-.status-error { color: var(--error-red); }
-.status-loading { color: var(--brand-orange); }
-.status-success { color: var(--brand-orange); }
-.status-cancelled { color: var(--cancel-gray); }
+.status-error { 
+  color: var(--error-red); 
+}
+.status-loading { 
+  color: var(--brand-orange); 
+}
+.status-success { 
+  color: var(--brand-orange); 
+}
+.status-cancelled { 
+  color: var(--cancel-gray); 
+}
 
 /* =========================
    Responsive Desktop Grid
@@ -351,8 +331,6 @@ button:disabled {
     align-items: start;
   }
   
-  /* FIX 4: Only apply explicit grid areas when grid-template-areas is active */
-  .app-header { grid-area: header; }
   .input-section { grid-area: input; }
   #output-section { grid-area: output; }
   .action-section { grid-area: actions; }
@@ -365,8 +343,7 @@ button:disabled {
   }
   
   .container {
-    padding: 1.25rem;
-    gap: 1.25rem;
+    padding: 1.5rem;
   }
 
   .action-section {
@@ -378,4 +355,27 @@ button:disabled {
     padding: 1rem;
     text-align: center;
   }
+}
+
+.input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}.secondary-btn {
+  flex: none;
+
+  padding: 0.45rem 1rem;
+
+  font-size: 0.85rem;
+
+  background: transparent;
+
+  color: var(--brand-orange);
+
+  border: 2px solid var(--brand-orange);
+}
+
+.secondary-btn:hover {
+  background: var(--brand-orange);
+  color: white;
 }
