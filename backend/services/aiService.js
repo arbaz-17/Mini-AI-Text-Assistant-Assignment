@@ -22,7 +22,7 @@ const SUPPORTED_MODELS = [
   "nvidia/nemotron-3-ultra-550b-a55b:free",
   "openai/gpt-oss-20b:free",
   "google/gemma-4-31b-it:free",
-  "qwen/qwen3-30b-a3b:free",
+  "nvidia/nemotron-3-super-120b-a12b:free",
 ];
 
 export async function processAIRequest({ action, text, model }) {
