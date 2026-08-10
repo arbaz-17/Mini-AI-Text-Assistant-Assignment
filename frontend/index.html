@@ -2,59 +2,51 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>AI Text Assistant</title>
+    <title>AI Text Assistant - OptimusFox</title>
 
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
+
   <body>
     <main class="container">
       <header class="app-header">
         <div class="header-text">
           <h1>AI Text Assistant - OptimusFox</h1>
+
           <p>Summarize or rewrite text using AI.</p>
         </div>
 
-        <!-- New Dropdown Added Here -->
         <div class="model-selector">
-          <label for="ai-model">Model:</label>
-<select id="ai-model" name="ai-model" >
+          <label for="ai-model"> Model: </label>
 
-  <option value="nvidia/nemotron-3-ultra-550b-a55b:free" selected>
-    NVIDIA Nemotron 3 Ultra
-  </option>
-  
+          <select id="ai-model" name="ai-model">
+            <option value="nvidia/nemotron-3-ultra-550b-a55b:free" selected>
+              NVIDIA Nemotron 3 Ultra
+            </option>
 
-  <option value="openai/gpt-oss-20b:free">
-    OpenAI GPT OSS 20B
-  </option>
+            <option value="openai/gpt-oss-20b:free">OpenAI GPT OSS 20B</option>
 
-  <option value="google/gemma-4-31b-it:free">
-    Google Gemma 4 31B
-  </option>
+            <option value="google/gemma-4-31b-it:free">
+              Google Gemma 4 31B
+            </option>
 
-  <option value="qwen/qwen3-30b-a3b:free">
-    Qwen 3 30B
-  </option>
-</select>
+            <option value="qwen/qwen3-30b-a3b:free">Qwen 3 30B</option>
+          </select>
         </div>
       </header>
 
       <section class="input-section">
         <div class="input-header">
-  <label for="text-input">
-    Enter your text
-  </label>
+          <label for="text-input"> Enter your text </label>
 
-  <button
-    id="load-sample-btn"
-    type="button"
-    class="secondary-btn"
-  >
-    Load Sample
-  </button>
-</div>
+          <button id="load-sample-btn" type="button" class="secondary-btn">
+            Load Sample
+          </button>
+        </div>
+
         <textarea
           id="text-input"
           rows="10"
@@ -70,10 +62,17 @@
 
       <section id="status-section" aria-live="polite"></section>
 
-      <section id="output-section" hidden>
+      <section id="output-section">
         <h2>AI Response</h2>
 
-        <textarea class="output-textarea" id="output-text" rows="10" readonly></textarea>
+        <textarea
+          class="output-textarea"
+          id="output-text"
+          rows="10"
+          readonly
+          placeholder="Your AI response will appear here..."
+          aria-label="AI generated response"
+        ></textarea>
       </section>
     </main>
 

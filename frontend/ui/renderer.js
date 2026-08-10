@@ -4,7 +4,6 @@ import {
   summarizeButton,
   rewriteButton,
   statusSection,
-  outputSection,
   outputText,
 } from "./dom.js";
 
@@ -13,8 +12,6 @@ import {
   createButton,
   createStatusMessage,
   setButtonsDisabled,
-  hideElement,
-  showElement,
 } from "./domHelpers.js";
 
 export function render(onCancel, onRetry) {
@@ -49,13 +46,11 @@ function renderIdle() {
 
   clearElement(statusSection);
 
-  hideElement(outputSection);
+  outputText.value = "";
 }
 
 function renderLoading(onCancel) {
   setButtonsDisabled([summarizeButton, rewriteButton], true);
-
-  hideElement(outputSection);
 
   clearElement(statusSection);
 
@@ -80,15 +75,11 @@ function renderSuccess() {
 
   clearElement(statusSection);
 
-  showElement(outputSection);
-
   outputText.value = appState.response;
 }
 
 function renderError(onRetry) {
   setButtonsDisabled([summarizeButton, rewriteButton], false);
-
-  hideElement(outputSection);
 
   clearElement(statusSection);
 
@@ -105,8 +96,6 @@ function renderError(onRetry) {
 
 function renderCancelled() {
   setButtonsDisabled([summarizeButton, rewriteButton], false);
-
-  hideElement(outputSection);
 
   clearElement(statusSection);
 
