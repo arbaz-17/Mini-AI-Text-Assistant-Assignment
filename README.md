@@ -159,8 +159,6 @@ Separated the application into dedicated modules for state management, services,
 
 ## Demo
 
-**Live Demo:** []
+**Live Demo:** [Week 4 Assignment Live Demo](https://of-internship-week4-ai-assignment.vercel.app/)
 
-```
-[Week 4 Assignment Live Demo](https://of-internship-week4-ai-assignment.vercel.app/)
 ```
