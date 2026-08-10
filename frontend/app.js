@@ -58,21 +58,15 @@ async function handleAIRequest(action) {
 }
 function initializeRequest(action) {
   appState.currentAction = action;
-
   appState.response = "";
-
   appState.error = "";
-
   appState.requestState = RequestState.LOADING;
-
   appState.abortController = new AbortController();
 }
 
 function handleSuccess(response) {
   appState.response = response;
-
   appState.requestState = RequestState.SUCCESS;
-
   appState.abortController = null;
 }
 
@@ -81,7 +75,6 @@ function handleFailure(error) {
     appState.requestState = RequestState.CANCELLED;
   } else {
     appState.error = error.message;
-
     appState.requestState = RequestState.ERROR;
   }
 
@@ -94,9 +87,7 @@ function validateInput(text) {
   }
 
   appState.error = "Please enter some text.";
-
   appState.requestState = RequestState.ERROR;
-
   updateUI();
 
   return false;
