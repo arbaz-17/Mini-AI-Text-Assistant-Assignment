@@ -155,10 +155,7 @@ Handled:
 
 Separated the application into dedicated modules for state management, services, UI rendering, utilities, routing, and AI processing.
 
----
 
 ## Demo
 
 **Live Demo:** [Week 4 Assignment Live Demo](https://of-internship-week4-ai-assignment.vercel.app/)
-
-```
